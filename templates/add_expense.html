@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add Expense</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #0e0e0e, #1b1b1b);
       color: #f5f5f5;
@@ -19,6 +20,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 1rem;
     }
 
     nav {
@@ -27,6 +29,7 @@
       padding: 1rem 2rem;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 2rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
       position: sticky;
@@ -38,7 +41,7 @@
       text-decoration: none;
       color: #ccc;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 1vw + 0.2rem, 1.1rem);
       transition: color 0.3s;
     }
 
@@ -52,7 +55,7 @@
       border-radius: 20px;
       padding: 2.5rem 2rem;
       margin-top: 4rem;
-      width: 90%;
+      width: 100%;
       max-width: 500px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.06);
@@ -61,8 +64,8 @@
     h2 {
       text-align: center;
       margin-bottom: 2rem;
+      font-size: clamp(1.5rem, 2vw + 0.5rem, 2.2rem);
       color: #ffffff;
-      font-size: 1.8rem;
     }
 
     label {
@@ -114,7 +117,17 @@
 
     @media (max-width: 600px) {
       .container {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1.25rem;
+        margin-top: 2rem;
+      }
+
+      nav {
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+      }
+
+      input[type="submit"] {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -129,13 +142,11 @@
   <div class="container">
     <h2>Add New Expense</h2>
     <form action="/add_expense" method="POST">
-     
-
       <label for="TITLE">Title</label>
-      <input type="text" name="TITLE" required>
+      <input type="text" id="TITLE" name="TITLE" required>
 
       <label for="AMOUNT">Amount (₹)</label>
-      <input type="number" name="AMOUNT" step="0.01" required>
+      <input type="number" id="AMOUNT" name="AMOUNT" step="0.01" required>
 
       <input type="submit" value="Add Expense">
     </form>
