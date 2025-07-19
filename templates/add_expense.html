@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Expense</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0e0e0e, #1b1b1b);
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      margin-top: 4rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 12px;
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border: 1px solid #333;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    input[type="number"]:focus,
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #0077ff;
+      background-color: #252525;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,123,255,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/add_expense">Add Expense</a>
+    <a href="/display">Logs</a>
+  </nav>
+
+  <div class="container">
+    <h2>Add New Expense</h2>
+    <form action="/add_expense" method="POST">
+     
+
+      <label for="TITLE">Title</label>
+      <input type="text" name="TITLE" required>
+
+      <label for="AMOUNT">Amount (₹)</label>
+      <input type="number" name="AMOUNT" step="0.01" required>
+
+      <input type="submit" value="Add Expense">
+    </form>
+  </div>
+</body>
+</html>

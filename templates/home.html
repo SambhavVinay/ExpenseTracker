@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #f2f2f2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #121212;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: 600;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    main {
+      padding: 30px 20px;
+      flex: 1;
+    }
+
+    .menu-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .menu-item {
+      background: #1e1e1e;
+      padding: 16px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 1.05em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+      border: 1px solid #2a2a2a;
+    }
+
+    .menu-item:hover {
+      background: #f3b366;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.85em;
+      color: #888;
+      background: #0f0f0f;
+      border-top: 1px solid #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+  <header>Expense Tracker</header>
+
+  <main>
+    <div class="menu-card">
+      <a href="/" class="menu-item">Home</a>
+      <a href="/add_expense" class="menu-item">Add Expense</a>
+      <a href="/display" class="menu-item">View Logs</a>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Personal Expense Tracker by Sam
+  </div>
+</body>
+</html>
