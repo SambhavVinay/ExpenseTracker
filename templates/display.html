@@ -58,6 +58,11 @@
             color: #e6e6e6;
         }
 
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -76,10 +81,12 @@
             background-color: #2c2c2c;
             color: #00ffcc;
             font-size: 0.95rem;
+            white-space: nowrap;
         }
 
         td {
             font-size: 0.95rem;
+            white-space: nowrap;
         }
 
         tr:nth-child(even) {
@@ -105,6 +112,12 @@
                 padding: 10px;
             }
 
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
             .card {
                 padding: 15px;
                 border-radius: 10px;
@@ -112,6 +125,7 @@
 
             table {
                 font-size: 0.85rem;
+                min-width: unset;
             }
 
             th, td {
@@ -132,27 +146,33 @@
         <h1>Expense Logs</h1>
         <h2 class="summary">Total Expenses: ₹{{ display_expenses | sum(attribute='amount') }}</h2>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Amount (₹)</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-            {% for item in display_expenses %}
-            <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.title }}</td>
-                <td>₹{{ item.amount }}</td>
-                <td>{{ item.date_added }}</td>
-                <td>
-                    <a href="/update/{{ item.id }}">Update</a> |
-                    <a href="/delete/{{ item.id }}">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Amount (₹)</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in display_expenses %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>₹{{ item.amount }}</td>
+                        <td>{{ item.date_added }}</td>
+                        <td>
+                            <a href="/update/{{ item.id }}">Update</a> |
+                            <a href="/delete/{{ item.id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </body>
